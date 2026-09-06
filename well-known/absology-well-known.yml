@@ -1,0 +1,66 @@
+generated: '2026-09-06'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  Every path probed on absology.co.kr and www.absology.co.kr returned HTTP 200 carrying the same
+  ~1.6KB Korean anti-bot interstitial ("Please prove that you are human", CUPID slowAES cookie
+  challenge, /cupid.js), not a document. The negative-control path
+  /.well-known/absology-negative-control-7f3ab91c.json — which cannot exist — returned 200 with
+  the same template, so nothing this host returns for a guessed path is evidence. NO document was
+  saved and NO WellKnown / SecurityTxt / AgentCard / APICatalog pointer is emitted: this file
+  records an absence, not a presence.
+hit_count: 0
+soft_404_control:
+  path: /.well-known/absology-negative-control-7f3ab91c.json
+  status: 200
+  bytes: 1630
+  content_type: text/html
+  result: failed
+path_echo_control: failed
+hosts:
+- host: https://absology.co.kr
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, note: anti-bot interstitial HTML, not a document}
+  - {path: /.well-known/openid-configuration, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/oauth-protected-resource, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/api-catalog, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/apis.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /apis.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /apis.yml, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/agent.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/aauth-resource.json, status: 200, file: null, note: anti-bot interstitial HTML}
+- host: https://www.absology.co.kr
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, note: anti-bot interstitial HTML, not a document}
+  - {path: /.well-known/openid-configuration, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/oauth-protected-resource, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/api-catalog, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/apis.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /apis.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /apis.yml, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/agent.json, status: 200, file: null, note: anti-bot interstitial HTML}
+  - {path: /.well-known/aauth-resource.json, status: 200, file: null, note: anti-bot interstitial HTML}
+contract_discovery:
+  note: >-
+    STEP 0b contract discovery ran and missed on every surface. /openapi.json, /swagger.json,
+    /api-docs and /llms.txt on both hosts returned the same interstitial. DNS on absology.co.kr is
+    a wildcard — api., docs., developer., dev., portal., cloud., lis., app., admin. and data. all
+    resolve to the single origin 183.111.174.52 — so there is no distinct API or docs host to
+    probe. No GitHub user or organisation named absology exists (GitHub search API, 0 results), and
+    no package named absology exists on npm (0 results) or PyPI (404). absology.com is a parked
+    domain lander, not the company.
+  probes:
+  - {url: 'https://absology.co.kr/openapi.json', status: 200, result: interstitial-html}
+  - {url: 'https://absology.co.kr/swagger.json', status: 200, result: interstitial-html}
+  - {url: 'https://absology.co.kr/api-docs', status: 200, result: interstitial-html}
+  - {url: 'https://absology.co.kr/llms.txt', status: 200, result: interstitial-html}
+  - {url: 'https://www.absology.co.kr/openapi.json', status: 200, result: interstitial-html}
+  - {url: 'https://api.github.com/search/users?q=absology', status: 200, result: 0-results}
+  - {url: 'https://registry.npmjs.org/-/v1/search?text=absology', status: 200, result: 0-results}
+  - {url: 'https://pypi.org/pypi/absology/json', status: 404, result: not-found}

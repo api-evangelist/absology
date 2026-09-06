@@ -1,0 +1,20 @@
+# Absology
+
+> Absology Co., Ltd. is a South Korean in-vitro diagnostics manufacturer (founded 2017, Anyang,
+> Gyeonggi-do) that builds point-of-care immunoassay analyzers and reagent cartridges. As of
+> 2026-09-06 no public API, SDK, developer portal or machine-readable contract has been found.
+
+## About
+- [Absology corporate site](https://www.absology.co.kr/): Korean-language company and product site. Serves an anti-bot interstitial to non-browser clients.
+- [Absology on LinkedIn](https://www.linkedin.com/company/absology-co-ltd): Company page.
+
+## APIs
+- None published. Contract discovery on 2026-09-06 probed /openapi.json, /swagger.json, /api-docs, /llms.txt, /apis.json and the full /.well-known/ path list on absology.co.kr and www.absology.co.kr; every path returned the same anti-bot interstitial, including a negative-control path that cannot exist. No GitHub organisation, npm package or PyPI package named absology exists.
+
+## Artifacts
+- [Domain security probe](https://raw.githubusercontent.com/api-evangelist/absology/refs/heads/main/security/absology-domain-security.yml): TLS/HSTS/DNSSEC/CAA/SPF/DMARC posture for absology.co.kr.
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/absology/refs/heads/main/well-known/absology-well-known.yml): Recorded absence — every probed discovery path returns a catch-all interstitial.
+- [apis.json](https://raw.githubusercontent.com/api-evangelist/absology/refs/heads/main/apis.yml): This profile, machine-readable.
+
+## Notes
+- This is an independent third-party profile maintained by API Evangelist. It is not operated or endorsed by Absology. Corrections: https://github.com/api-evangelist/absology/issues

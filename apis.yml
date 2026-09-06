@@ -1,17 +1,31 @@
 aid: absology
 name: Absology
-description: 'Absology is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Absology Co., Ltd. is a South Korean in-vitro diagnostics (IVD) company founded in 2017 and
+  headquartered in Anyang, Gyeonggi-do. It designs and manufactures point-of-care immunoassay
+  analyzers and the reagent cartridges that run on them, built on microfluidic immunoassay and
+  photo-oxidation-induced fluorescence amplification chemistry. Its Absol analyzer line runs rapid
+  and ultra-sensitive quantitative blood tests — testosterone, vitamin D, PSA, TSH, free T4, PCT,
+  cortisol and cardiac markers — for human and companion-animal use, with stated research programs
+  in anti-cancer therapy monitoring, cardiovascular disease and neurodegenerative disease. Absology
+  is a hardware and consumables manufacturer rather than a software vendor, and no public developer
+  program, API, SDK or machine-readable contract has been found on its corporate site or in any
+  public package registry or code host.
 url: https://raw.githubusercontent.com/api-evangelist/absology/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-06'
 modified: '2026-09-06'
 tags:
 - Company
+- Health Care
+- Medical Devices
+- Diagnostics
+- In-Vitro Diagnostics
+- Point Of Care
+- Laboratory
+- South Korea
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +33,35 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/absology-domain-security.yml
+- type: LLMsTxt
+  url: llms/absology-llms.txt
 - type: Website
-  url: https://equityzen.com/company/absology
+  url: https://www.absology.co.kr/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/absology-co-ltd
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v3
+x-coverage:
+  state: blocked
+  reason: bot-challenge
+  detail: >-
+    Every path on absology.co.kr and www.absology.co.kr — homepage, robots.txt, /openapi.json and
+    the whole /.well-known/ list — answers HTTP 200 with the same Korean CUPID slowAES anti-bot
+    interstitial ("Please prove that you are human") instead of the page, so the corporate site
+    could not be read and no claim about Absology's developer surface can be made from it; we do
+    not evade challenges.
+  evidence:
+  - url: https://absology.co.kr/
+    status: 200
+  - url: https://www.absology.co.kr/.well-known/security.txt
+    status: 200
+  - url: https://absology.co.kr/.well-known/absology-negative-control-7f3ab91c.json
+    status: 200
+  - url: https://absology.co.kr/openapi.json
+    status: 200
+  checked: '2026-09-06'
